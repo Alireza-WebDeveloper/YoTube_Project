@@ -130,12 +130,12 @@ const VideoPlayerYotube = ({ dataOfVideoSingleDetail }) => {
   return (
     <Stack className="videoPlayer_Yotube">
       <Card>
-        <CardMedia
-          component="video"
-          image={`https://www.youtube.com/watch?v=k_AN49fA9g0`}
-          autoPlay
-          controls
-        />
+        <div class="ratio ratio-16x9">
+          <iframe
+            allowfullscreen
+            src={`https://www.youtube.com/embed/${dataOfVideoSingleDetail.id}`}
+          ></iframe>
+        </div>
         {renderCardContent}
         <CardActions>
           <Stack flexGrow={1} flexDirection={'column'} gap={2}>

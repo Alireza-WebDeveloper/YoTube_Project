@@ -28,7 +28,7 @@ const VideoCard = ({ video }) => {
               video?.snippet?.thumbnails.high.url ||
               'https://wallpapercave.com/fuwp/uwp2945453.jpeg'
             }
-            lazy="loading"
+            loading="lazy"
             component={'img'}
           />
         </CardActionArea>

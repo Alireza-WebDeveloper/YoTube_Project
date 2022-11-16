@@ -4,7 +4,9 @@ import ajaxApi from '../../Utils/api';
 const fetchGetVideoDetailRelated = createAsyncThunk(
   'fetchGet/VideoDetailRelated',
   async (id, ThunkControl) => {
-    const response = await ajaxApi.get(`/search?part=statistics&id=${id}`);
+    const response = await ajaxApi.get(
+      `/search?part=snippet&relatedToVideoId=${id}`
+    );
     return response.data.items;
   }
 );

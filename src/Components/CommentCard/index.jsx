@@ -25,7 +25,12 @@ const CommentCard = ({ comment }) => {
                 to={`/channel/${comment?.snippet?.topLevelComment?.snippet?.authorChannelId.value}`}
               > */}
               <IconButton>
-                <Avatar src={`${''}`} />
+                <Avatar
+                  src={
+                    comment?.snippet?.topLevelComment?.snippet
+                      ?.authorProfileImageUrl || ''
+                  }
+                />
               </IconButton>
               {/* </Link> */}
             </ListItemAvatar>
