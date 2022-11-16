@@ -12,13 +12,13 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-const LoadingVideoCard = () => {
+const LoadingVideoPlayerYotube = () => {
   return (
     <>
       <Box>
         <Card>
           <Skeleton
-            sx={{ height: '38vh' }}
+            sx={{ height: '90vh' }}
             animation="wave"
             variant="rectangular"
           />
@@ -63,4 +63,4 @@ const LoadingVideoCard = () => {
   );
 };
 
-export default LoadingVideoCard;
+export default LoadingVideoPlayerYotube;

@@ -7,7 +7,7 @@ const ajaxApi = axios.create({
     maxResults: '50',
   },
   headers: {
-    'X-RapidAPI-Key': 'da5d87ef91msh569ca25b4f82bc5p1d6a5bjsn37b50fdac013',
+    'X-RapidAPI-Key': '30fa33f71emsh863cfde46b96189p1dac12jsn23cfc4940c28',
     'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com',
   },
 });

@@ -1,7 +1,7 @@
 import { colors, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
-
+import '../../style.css';
 const ThemeContext = React.createContext();
 
 const ThemeStore = (props) => {

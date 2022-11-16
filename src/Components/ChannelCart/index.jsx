@@ -11,11 +11,15 @@ import {
 } from '@mui/material';
 import { IconChecked } from '../../Utils';
 const ChannelCart = ({ dataOfChannel }) => {
+  console.log(dataOfChannel?.brandingSettings?.image?.bannerExternalUrl);
   return (
     <Stack flexGrow={1} p={0}>
       <CardMedia
         component={'img'}
-        src={dataOfChannel?.brandingSettings?.image?.bannerExternalUrl}
+        src={
+          dataOfChannel?.brandingSettings?.image?.bannerExternalUrl ||
+          'https://img.freepik.com/free-psd/3d-rounded-square-with-glossy-youtube-logo_125540-1545.jpg?w=900&t=st=1668606049~exp=1668606649~hmac=529a27bb6d33fb11b7d7a43621b31c3e732c56ba5f2a6615d5b62b21fc83a22e'
+        }
         loading="lazy"
         alt={'not be found'}
         sx={{

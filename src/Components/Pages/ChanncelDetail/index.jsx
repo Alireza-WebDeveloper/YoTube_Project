@@ -8,31 +8,42 @@ import ChannelCart from '../../ChannelCart';
 import ChannelTab from '../../ChannelTab';
 import { fetchGetVideosChannel } from '../../../feature/videoChannelSlice';
 import VideoGallery from '../../VideoGallery';
+import LoadingChannelPerson from '../../LazyLoading/LoadingChannelPerson';
+import LoadingGalleryCard from '../../LazyLoading/LoadingGalleryCard';
 const ChannelDetail = () => {
   const { updateActiveTab } = useContext(ActiveSidebarContext);
   const { id } = useParams();
   const dispatch = useDispatch();
   const { DetailOfChannelPerson, videoChannel } = useSelector((store) => store);
-
   useEffect(() => {
     updateActiveTab('');
     dispatch(fetchGetDetailOfChannelPerson(id));
     dispatch(fetchGetVideosChannel(id));
   }, []);
-  if (DetailOfChannelPerson.loading) return <Stack pt={10}>loading..</Stack>;
-  if (!DetailOfChannelPerson.dataOfChannel) return null;
+
+  const renderChannelPerson = () => {
+    return DetailOfChannelPerson?.loading ? (
+      <LoadingChannelPerson />
+    ) : !DetailOfChannelPerson?.dataOfChannel ? null : (
+      <ChannelCart dataOfChannel={DetailOfChannelPerson.dataOfChannel} />
+    );
+  };
+
+  const renderVideoChannel = () => {
+    return videoChannel.loading ? (
+      <LoadingGalleryCard />
+    ) : (
+      <VideoGallery listOfVideos={videoChannel.listOfVideos} />
+    );
+  };
 
   return (
     <Container>
       <Grid container pt={10} spacing={2}>
         <Grid item xs={12}>
-          <ChannelCart dataOfChannel={DetailOfChannelPerson.dataOfChannel} />
+          {renderChannelPerson()}
         </Grid>
         <Grid item xs={12}>
-          {/* <ChannelTab
-          listOfVideos={videoChannel.listOfVideos}
-          loading={videoChannel.loading}
-        /> */}
           <Stack>
             <Typography
               variant={'h2'}
@@ -42,7 +53,7 @@ const ChannelDetail = () => {
               Channel
             </Typography>
           </Stack>
-          <VideoGallery listOfVideos={videoChannel.listOfVideos} />
+          {renderVideoChannel()}
         </Grid>
       </Grid>
     </Container>

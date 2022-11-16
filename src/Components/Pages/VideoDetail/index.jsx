@@ -11,9 +11,12 @@ import { fetchGetVideoDetailRelated } from '../../../feature/videoDetailRelatedS
 import VideoCard from '../../Videos/VideoCard';
 import { fetchGetVideoDetailComments } from '../../../feature/videoDetailCommentsSlice';
 import CommentCard from '../../CommentCard';
+import LoadingVideoCard from '../../LazyLoading/LoadingVideoCard';
+import LoadingComments from '../../LazyLoading/LoadingComments';
+import LoadingVideoPlayerYotube from '../../LazyLoading/LoadingVideoPlayerYotube';
 const VideoDetail = () => {
   const dispatch = useDispatch();
-  const { activeTab, updateActiveTab } = useContext(ActiveSidebarContext);
+  const { updateActiveTab } = useContext(ActiveSidebarContext);
   const { id } = useParams();
   const { videoDetailSingle, videoDetailRelated, videoDetailComments } =
     useSelector((store) => store);
@@ -24,32 +27,51 @@ const VideoDetail = () => {
     dispatch(fetchGetVideoDetailRelated(id));
     dispatch(fetchGetVideoDetailComments(id));
   }, [id]);
-  if (videoDetailSingle?.loading || !videoDetailSingle.dataOfVideoSingleDetail)
-    return <Stack pt={10}>loading...</Stack>;
+
   const renderVideoCartRelated = () => {
-    return videoDetailRelated.listOfVideos.map((video) => {
-      return (
-        <Grid item lg={12} md={4} sm={6} xs={12} key={video.id.videoId}>
-          <VideoCard video={video} />
-        </Grid>
-      );
-    });
+    return videoDetailRelated.loading
+      ? Array.from({ length: 50 }, (_, index) => {
+          return (
+            <Grid item lg={12} md={4} sm={6} xs={12} key={index}>
+              <LoadingVideoCard />
+            </Grid>
+          );
+        })
+      : videoDetailRelated.listOfVideos.map((video) => {
+          return (
+            <Grid item lg={12} md={4} sm={6} xs={12} key={video.id.videoId}>
+              <VideoCard video={video} />
+            </Grid>
+          );
+        });
   };
   const renderVideoComments = () => {
-    return videoDetailComments.listOfComments.map((comment) => {
-      return <CommentCard comment={comment} key={comment?.snippet?.videoId} />;
-    });
+    return videoDetailComments.loading ? (
+      <LoadingComments />
+    ) : (
+      videoDetailComments.listOfComments.map((comment) => {
+        return (
+          <CommentCard comment={comment} key={comment?.snippet?.videoId} />
+        );
+      })
+    );
+  };
+
+  const renderVideoYotube = () => {
+    return videoDetailSingle.loading ? (
+      <LoadingVideoPlayerYotube />
+    ) : !videoDetailSingle.dataOfVideoSingleDetail ? null : (
+      <VideoPlayerYotube
+        dataOfVideoSingleDetail={videoDetailSingle.dataOfVideoSingleDetail}
+      />
+    );
   };
   return (
     <Grid container pt={10} spacing={2}>
       <Grid item lg={9} xs={12}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <VideoPlayerYotube
-              dataOfVideoSingleDetail={
-                videoDetailSingle.dataOfVideoSingleDetail
-              }
-            />
+            {renderVideoYotube()}
           </Grid>
           <Grid item xs={12}>
             <Stack>

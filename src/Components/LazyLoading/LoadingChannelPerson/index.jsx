@@ -1,29 +1,17 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  ListItemAvatar,
-  ListItemText,
-  Skeleton,
-  ListItem,
-  Typography,
-} from '@mui/material';
 import React from 'react';
-
-const LoadingVideoCard = () => {
+import { Skeleton, Stack, List, ListItemAvatar,Typography ,Avatar,ListItemText,ListItem} from '@mui/material';
+const LoadingChannelPerson = () => {
   return (
-    <>
-      <Box>
-        <Card>
-          <Skeleton
-            sx={{ height: '38vh' }}
-            animation="wave"
-            variant="rectangular"
-          />
-          <CardContent>
-            <ListItem
+    <Stack flexGrow={1} display={'flex'} flexDirection={'column'}>
+      <Stack flexGrow={1}>
+        <Skeleton
+          sx={{ height: '70vh' , maxHeight:'70vh', borderRadius: 1 }}
+          animation="wave"
+          variant="rectangular"
+        />
+      </Stack>
+      <Stack>
+      <ListItem
               sx={{
                 alignItems: 'flex-start',
                 textTransform: 'capitalize',
@@ -41,7 +29,7 @@ const LoadingVideoCard = () => {
                     <Skeleton
                       animation="wave"
                       variant="rounded"
-                      sx={{ width: '50%' }}
+                      sx={{ width: '25%' }}
                     />
                   </Typography>
                 }
@@ -50,17 +38,15 @@ const LoadingVideoCard = () => {
                     <Skeleton
                       animation="wave"
                       variant="rounded"
-                      sx={{ minHeight: '3vh' }}
+                      sx={{ minHeight: '3vh',width: '50%' }}
                     />
                   </Typography>
                 }
               />
             </ListItem>
-          </CardContent>
-        </Card>
-      </Box>
-    </>
+      </Stack>
+    </Stack>
   );
 };
 
-export default LoadingVideoCard;
+export default LoadingChannelPerson;

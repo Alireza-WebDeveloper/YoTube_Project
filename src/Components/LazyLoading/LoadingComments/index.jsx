@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import React from 'react';
 import { CircularProgress } from '@mui/material';
-const LoadingGalleryCard = () => {
+const LoadingComments = () => {
   return (
     <Stack pt={10}>
       <CircularProgress
@@ -12,4 +12,4 @@ const LoadingGalleryCard = () => {
   );
 };
 
-export default LoadingGalleryCard;
+export default LoadingComments;
