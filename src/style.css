@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@font-face {
+  font-family: Anton;
+  src: url('/src/Fonts/Anton/Anton-Regular.ttf');
+}
+@font-face {
+  font-family: Oswald;
+  src: url('/src/Fonts/Oswald/Oswald-VariableFont_wght.ttf');
+}
+
+:root {
+  --bg: skyblue;
+}
+
+/* .container-fluid {
+  background-color: var(--bg);
+} */
+/* 
+html {
+  font-size: 1.6rem;
+  font-family: roboto, sans-serif;
+} */
