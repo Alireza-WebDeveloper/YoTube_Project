@@ -1,12 +1,8 @@
 import React from 'react';
 import {
-  Grid,
   Card,
   CardMedia,
-  CardActions,
   CardContent,
-  Stack,
-  ListItemButton,
   ListItemText,
   Typography,
   ListItemAvatar,
@@ -16,7 +12,7 @@ import {
 } from '@mui/material';
 import { Logo } from '../../Utils';
 import { NavLink } from 'react-router-dom';
-import SettingVideoGrid from '../../Utils/index';
+
 const VideoCard = ({ video }) => {
   return (
     <Card sx={{ height: '60vh' }}>

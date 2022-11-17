@@ -3,7 +3,6 @@ import {
   Box,
   Card,
   CardContent,
-  CardHeader,
   ListItemAvatar,
   ListItemText,
   Skeleton,

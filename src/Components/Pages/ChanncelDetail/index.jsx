@@ -5,7 +5,7 @@ import { fetchGetDetailOfChannelPerson } from '../../../feature/DetailOfChannelP
 import { ActiveSidebarContext } from '../../../Context/ActiveSideBarTab';
 import { useParams } from 'react-router-dom';
 import ChannelCart from '../../ChannelCart';
-import ChannelTab from '../../ChannelTab';
+
 import { fetchGetVideosChannel } from '../../../feature/videoChannelSlice';
 import VideoGallery from '../../VideoGallery';
 import LoadingChannelPerson from '../../LazyLoading/LoadingChannelPerson';

@@ -1,12 +1,11 @@
-import { Grid, Stack, Breadcrumbs, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Grid } from '@mui/material';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchGetVideoSearch } from '../../../feature/videoSearchSlice';
 import { useParams } from 'react-router-dom';
 import VideoCard from '../../Videos/VideoCard';
 import LoadingVideoCard from '../../LazyLoading/LoadingVideoCard';
-import { Link } from 'react-router-dom';
 import BreadCrumbsLink from '../../BreadCrumbsLink';
 import { useContext } from 'react';
 import { dataOfSideBarTab } from '../../../Utils';

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  CardActionArea,
-  CardMedia,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-} from '@mui/material';
+import { CardActionArea, ImageList, ImageListItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useBreakPoint from '../../Hook/useBreakPoint';
 const VideoGallery = ({ listOfVideos }) => {

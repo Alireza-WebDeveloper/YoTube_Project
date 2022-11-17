@@ -1,7 +1,6 @@
 import {
   Card,
   Stack,
-  CardMedia,
   CardContent,
   Typography,
   Box,
@@ -14,7 +13,6 @@ import {
   Button,
 } from '@mui/material';
 import React from 'react';
-import video1 from './Haamin.mp4';
 import {
   IconLike,
   IconDislike,
@@ -132,6 +130,7 @@ const VideoPlayerYotube = ({ dataOfVideoSingleDetail }) => {
       <Card>
         <div class="ratio ratio-16x9">
           <iframe
+            title={dataOfVideoSingleDetail.snippet.title}
             allowfullscreen
             src={`https://www.youtube.com/embed/${dataOfVideoSingleDetail.id}`}
           ></iframe>

@@ -1,20 +1,16 @@
 import {
-  IconButton,
   List,
   ListItem,
   Stack,
-  Tooltip,
   ListItemIcon,
   ListItemButton,
   ListItemText,
   Typography,
 } from '@mui/material';
-import { Box } from '@mui/system';
-import React, { useState } from 'react';
+import React from 'react';
 import { dataOfSideBarTab } from '../../Utils';
 import { useContext } from 'react';
 import { ActiveSidebarContext } from '../../Context/ActiveSideBarTab';
-import * as Icons from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 const SideBarDrawer = ({ handleCloseSwipeDrawer }) => {
   const { activeTab, updateActiveTab } = useContext(ActiveSidebarContext);
