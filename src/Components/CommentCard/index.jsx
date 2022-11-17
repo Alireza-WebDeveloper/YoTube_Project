@@ -16,7 +16,7 @@ import { IconDislike, IconLike } from '../../Utils';
 const CommentCard = ({ comment }) => {
   return (
     <Paper>
-      <Stack flexGrow={1}>
+      <Stack flexGrow={1} className={'Comment_Card'}>
         <List>
           <ListItem sx={{ display: 'flex', alignItems: 'flex-start' }}>
             <ListItemAvatar>

@@ -22,7 +22,12 @@ const BreadCrumbsLink = ({ ListOfLinks }) => {
     });
   };
   return (
-    <Breadcrumbs aria-label="breadcrumb" separator="›" p={2}>
+    <Breadcrumbs
+      className={'BreadCrumbs_Link'}
+      aria-label="breadcrumb"
+      separator="›"
+      p={2}
+    >
       {renderLinks()}
     </Breadcrumbs>
   );

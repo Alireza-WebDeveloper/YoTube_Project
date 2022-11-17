@@ -10,7 +10,12 @@ import {
 } from '@mui/material';
 const LoadingChannelPerson = () => {
   return (
-    <Stack flexGrow={1} display={'flex'} flexDirection={'column'}>
+    <Stack
+      className="loading_Channel--Person"
+      flexGrow={1}
+      display={'flex'}
+      flexDirection={'column'}
+    >
       <Stack flexGrow={1}>
         <Skeleton
           sx={{ height: '70vh', maxHeight: '70vh', borderRadius: 1 }}

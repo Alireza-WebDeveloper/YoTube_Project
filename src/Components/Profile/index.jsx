@@ -4,7 +4,7 @@ import { SourceProfile } from '../../Utils/index';
 const Profile = () => {
   return (
     <>
-      <IconButton>
+      <IconButton className={'profile'}>
         <Avatar variant="rounded" src={SourceProfile}></Avatar>
       </IconButton>
     </>

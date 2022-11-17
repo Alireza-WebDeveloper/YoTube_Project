@@ -1,7 +1,6 @@
 import { AppBar } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
-import useBreakPoint from '../../Hook/useBreakPoint';
 import Navigation from './Navigation';
 import SwipeDrawer from './SwipeDrawer';
 

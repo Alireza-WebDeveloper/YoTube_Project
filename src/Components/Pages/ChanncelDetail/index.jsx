@@ -39,7 +39,7 @@ const ChannelDetail = () => {
 
   return (
     <Container>
-      <Grid container pt={10} spacing={2}>
+      <Grid container pt={10} spacing={2} className={'channel_Detail-Page'}>
         <Grid item xs={12}>
           {renderChannelPerson()}
         </Grid>

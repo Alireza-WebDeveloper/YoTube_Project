@@ -7,6 +7,7 @@ const ToggleTheme = () => {
   return (
     <>
       <FormControlLabel
+      className='toggle_Theme'
         onChange={handleChangeTheme}
         label={
           mode ? (

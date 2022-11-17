@@ -6,9 +6,11 @@ const VideoGallery = ({ listOfVideos }) => {
   const { isMatching } = useBreakPoint();
   const renderGalleryOfVideos = () => {
     return listOfVideos.map((video) => {
-      console.log();
       return (
-        <Link to={`/video/${video.id.videoId}`}>
+        <Link
+          to={`/video/${video.id.videoId}`}
+          className={'video_Gallery--Item'}
+        >
           <CardActionArea>
             <ImageListItem>
               <img
@@ -37,7 +39,12 @@ const VideoGallery = ({ listOfVideos }) => {
       : 4;
   };
   return (
-    <ImageList gap={15} cols={settingGridGallery()} variant={'woven'}>
+    <ImageList
+      gap={15}
+      cols={settingGridGallery()}
+      variant={'woven'}
+      className={'video_Gallery'}
+    >
       {renderGalleryOfVideos()}
     </ImageList>
   );

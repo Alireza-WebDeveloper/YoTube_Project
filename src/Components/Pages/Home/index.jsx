@@ -38,7 +38,7 @@ const Home = () => {
     dispatch(fetchGetVideoSearch(activeTab));
   }, [activeTab]);
   return (
-    <Grid container pt={11} spacing={1}>
+    <Grid container pt={11} spacing={1} className='home-Page'>
       <Grid item lg={1} xs={12}>
         <SideBar />
       </Grid>

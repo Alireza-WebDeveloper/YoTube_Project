@@ -32,7 +32,7 @@ const VideoDetail = () => {
     return videoDetailRelated.loading
       ? Array.from({ length: 50 }, (_, index) => {
           return (
-            <Grid item lg={12} md={4} sm={6} xs={12} key={index}>
+            <Grid item lg={12} md={4} sm={6} xs={12} key={index} className={"video_Detail-Page"}>
               <LoadingVideoCard />
             </Grid>
           );

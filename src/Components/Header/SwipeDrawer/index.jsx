@@ -6,7 +6,7 @@ import SideBarDrawer from '../../SideBarDrawer';
 
 const SwipeDrawer = ({ openSwipeDrawer, handleCloseSwipeDrawer }) => {
   return (
-    <Box>
+    <Box className={'Swipe_Drawer'}>
       <SwipeableDrawer open={openSwipeDrawer} onClose={handleCloseSwipeDrawer}>
         <Stack p={2} gap={1}>
           <Box>

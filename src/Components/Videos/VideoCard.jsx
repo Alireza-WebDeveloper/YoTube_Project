@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 
 const VideoCard = ({ video }) => {
   return (
-    <Card sx={{ height: '60vh' }}>
+    <Card sx={{ height: '60vh' }} className={'video_Card'}>
       <NavLink to={`/video/${video.id.videoId}`}>
         <CardActionArea>
           <CardMedia

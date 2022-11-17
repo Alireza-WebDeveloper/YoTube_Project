@@ -1,4 +1,4 @@
-import { Button, Toolbar, Stack, Box, IconButton, Badge } from '@mui/material';
+import {  Toolbar, Stack, IconButton, Badge } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { IconMenu, Logo, IconNotification, IconFavorite } from '../../../Utils';
@@ -10,6 +10,7 @@ const Navigation = ({ handleOpenSwipeDrawer }) => {
   return (
     <Toolbar>
       <Stack
+        className={'navigation'}
         flexGrow={1}
         display={'flex'}
         flexDirection={'row'}

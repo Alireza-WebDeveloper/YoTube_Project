@@ -1,9 +1,7 @@
-import { IconButton, List, Stack, Tooltip, Typography } from '@mui/material';
+import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { dataOfSideBarTab } from '../../Utils';
-
-import * as Icons from 'react-icons/md';
 import { useContext } from 'react';
 import { ActiveSidebarContext } from '../../Context/ActiveSideBarTab';
 import { makeStyles } from '@mui/styles';

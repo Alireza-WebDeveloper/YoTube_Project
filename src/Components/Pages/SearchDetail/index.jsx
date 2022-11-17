@@ -33,7 +33,7 @@ const SearchDetail = () => {
   const renderVideoCard = () => {
     return videoSearch.listOfVideos.map((video) => {
       return (
-        <Grid item xl={3} md={4} sx={6} xs={12} key={video.id.videoId}>
+        <Grid item xl={3} md={4} sx={6} xs={12} key={video.id.videoId} className={'search_Detail-Page'}>
           <VideoCard video={video} />
         </Grid>
       );

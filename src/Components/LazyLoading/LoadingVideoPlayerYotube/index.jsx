@@ -14,7 +14,7 @@ import React from 'react';
 const LoadingVideoPlayerYotube = () => {
   return (
     <>
-      <Box>
+      <Box  className="loading_Video-PlayerYotube">
         <Card>
           <Skeleton
             sx={{ height: '90vh' }}

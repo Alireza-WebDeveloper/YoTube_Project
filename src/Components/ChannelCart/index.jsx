@@ -13,8 +13,9 @@ import { IconChecked } from '../../Utils';
 const ChannelCart = ({ dataOfChannel }) => {
   console.log(dataOfChannel?.brandingSettings?.image?.bannerExternalUrl);
   return (
-    <Stack flexGrow={1} p={0}>
+    <Stack flexGrow={1} p={0} className={'channel_Cart'}>
       <CardMedia
+        className={'channel_Cart--Banner'}
         component={'img'}
         src={
           dataOfChannel?.brandingSettings?.image?.bannerExternalUrl ||
@@ -29,11 +30,12 @@ const ChannelCart = ({ dataOfChannel }) => {
           m: 'auto',
         }}
       />
-      <ListItem>
-        <ListItemAvatar>
+      <ListItem className={'channel_Cart--Detail'}>
+        <ListItemAvatar className={'channel_Cart--Detail_Profile'}>
           <Avatar src={dataOfChannel?.snippet?.thumbnails?.high.url} />
         </ListItemAvatar>
         <ListItemText
+          className={'channel_Cart--Detail_Content'}
           primary={
             <Typography variant="h5">
               {dataOfChannel.snippet.title}

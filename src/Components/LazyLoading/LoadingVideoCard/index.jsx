@@ -14,7 +14,7 @@ import React from 'react';
 const LoadingVideoCard = () => {
   return (
     <>
-      <Box>
+      <Box className={'loading_Video-Card'}>
         <Card>
           <Skeleton
             sx={{ height: '38vh' }}
