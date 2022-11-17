@@ -23,6 +23,7 @@ const SideBarDrawer = ({ handleCloseSwipeDrawer }) => {
     return dataOfSideBarTab.map(({ id, icon, name }) => {
       return (
         <ListItem
+          sx={{ ml: 2 }}
           key={id}
           onClick={() => {
             updateActiveTab(name);

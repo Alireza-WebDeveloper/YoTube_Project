@@ -19,6 +19,26 @@ const ThemeStore = (props) => {
         main: mode ? colors.teal[200] : colors.teal[800],
       },
     },
+    typography: {
+      body1: {
+        fontFamily: 'Domine , cursive',
+      },
+      subtitle2: {
+        fontFamily: 'Oswald , cursive',
+      },
+      h5: {
+        fontFamily: 'RobotoSlab , cursive',
+      },
+      h2: {
+        fontFamily: 'RobotoSlab , cursive',
+      },
+      h3: {
+        fontFamily: 'RobotoSlab , cursive',
+      },
+      subtitle1: {
+        fontFamily: 'Oswald , cursive',
+      },
+    },
   });
   const handleChangeTheme = () => {
     setMode(!mode);

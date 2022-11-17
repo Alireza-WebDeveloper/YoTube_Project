@@ -13,8 +13,16 @@
   src: url('/src/Fonts/Oswald/Oswald-VariableFont_wght.ttf');
 }
 
+@font-face {
+  font-family: Domine;
+  src: url('/src/Fonts/Domine/Domine-Bold.ttf');
+}
+
+@font-face {
+  font-family: RobotoSlab;
+  src: url('/src/Fonts/Roboto_Slab/RobotoSlab-Black.ttf');
+}
+
 :root {
   --bg: skyblue;
 }
-
- 

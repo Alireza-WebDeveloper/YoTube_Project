@@ -3,7 +3,15 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IconClose, IconSearch } from '../../Utils';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+  resized: {
+    fontSize: 18,
+  },
+});
 const SearchBar = () => {
+  const classes = useStyles();
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
   const updateQuery = (e) => {
@@ -34,6 +42,11 @@ const SearchBar = () => {
       >
         <TextField
           color="secondary"
+          InputProps={{
+            classes: {
+              input: classes.resized,
+            },
+          }}
           autoComplete="off"
           variant="standard"
           sx={{

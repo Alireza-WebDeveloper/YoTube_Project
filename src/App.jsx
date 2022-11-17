@@ -7,6 +7,7 @@ import VideoDetail from './Components/Pages/VideoDetail';
 import SearchDetail from './Components/Pages/SearchDetail';
 import Home from './Components/Pages/Home';
 import { ActiveSideBarStore } from './Context/ActiveSideBarTab';
+
 const App = () => {
   return (
     <ThemeStore>

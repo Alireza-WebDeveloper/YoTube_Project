@@ -76,7 +76,7 @@ const VideoDetail = () => {
           <Grid item xs={12}>
             <Stack>
               <Typography
-                variant={'h4'}
+                variant={'h3'}
                 textTransform={'capitalize'}
                 gutterBottom
               >
