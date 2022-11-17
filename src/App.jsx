@@ -7,6 +7,7 @@ import VideoDetail from './Components/Pages/VideoDetail';
 import SearchDetail from './Components/Pages/SearchDetail';
 import Home from './Components/Pages/Home';
 import { ActiveSideBarStore } from './Context/ActiveSideBarTab';
+import HistoryDetail from './Components/Pages/HistoryDetail';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               <Route path="video/:id" element={<VideoDetail />} />
               <Route path="channel/:id" element={<ChannelDetail />} />
               <Route path="search/:searchQuery" element={<SearchDetail />} />
+              <Route path="history" element={<HistoryDetail />} />
             </Route>
           </Routes>
         </BrowserRouter>

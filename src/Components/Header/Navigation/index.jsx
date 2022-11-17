@@ -1,12 +1,20 @@
-import {  Toolbar, Stack, IconButton, Badge } from '@mui/material';
+import { Toolbar, Stack, IconButton, Badge, Typography } from '@mui/material';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { IconMenu, Logo, IconNotification, IconFavorite } from '../../../Utils';
+import { useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import {
+  IconMenu,
+  Logo,
+  IconNotification,
+  IconFavorite,
+  IconHistory,
+} from '../../../Utils';
 import Profile from '../../Profile';
 import SearchBars from '../../SearchBar';
 import ToggleTheme from '../../ToggleTheme';
 
 const Navigation = ({ handleOpenSwipeDrawer }) => {
+  const { videoHistory } = useSelector((store) => store);
   return (
     <Toolbar>
       <Stack
@@ -51,16 +59,22 @@ const Navigation = ({ handleOpenSwipeDrawer }) => {
             },
           }}
         >
-          <IconButton>
-            <Badge badgeContent={4} color="primary">
-              {IconNotification}
-            </Badge>
-          </IconButton>
-          <IconButton>
-            <Badge badgeContent={2} color="primary">
-              {IconFavorite}
-            </Badge>
-          </IconButton>
+          <Link to="history">
+            <IconButton>
+              <Badge
+                badgeContent={
+                  <Typography variant={'body2'}>
+                    {videoHistory.listOfHistory.length >= 1
+                      ? videoHistory.listOfHistory.length
+                      : null}
+                  </Typography>
+                }
+                color="primary"
+              >
+                {IconHistory}
+              </Badge>
+            </IconButton>
+          </Link>
         </Stack>
         <Stack className="Navigation_ToggleTheme" sx={{ ml: 'auto' }}>
           <ToggleTheme />

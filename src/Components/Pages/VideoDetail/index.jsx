@@ -7,19 +7,24 @@ import { fetchGetVideoDetailSingle } from '../../../feature/videoDetailSingleSli
 import VideoPlayerYotube from '../../VideoPlayerYotube';
 import { useContext } from 'react';
 import { ActiveSidebarContext } from '../../../Context/ActiveSideBarTab';
-import { fetchGetVideoDetailRelated } from '../../../feature/videoDetailRelatedSlice';
+import {
+  fetchGetVideoDetailRelated,
+  updateHistoryVideoRelated,
+} from '../../../feature/videoDetailRelatedSlice';
 import VideoCard from '../../Videos/VideoCard';
 import { fetchGetVideoDetailComments } from '../../../feature/videoDetailCommentsSlice';
 import CommentCard from '../../CommentCard';
 import LoadingVideoCard from '../../LazyLoading/LoadingVideoCard';
 import LoadingComments from '../../LazyLoading/LoadingComments';
 import LoadingVideoPlayerYotube from '../../LazyLoading/LoadingVideoPlayerYotube';
+
 const VideoDetail = () => {
   const dispatch = useDispatch();
   const { updateActiveTab } = useContext(ActiveSidebarContext);
   const { id } = useParams();
   const { videoDetailSingle, videoDetailRelated, videoDetailComments } =
     useSelector((store) => store);
+  const { videoHistory } = useSelector((store) => store);
 
   useEffect(() => {
     updateActiveTab('');
@@ -27,12 +32,23 @@ const VideoDetail = () => {
     dispatch(fetchGetVideoDetailRelated(id));
     dispatch(fetchGetVideoDetailComments(id));
   }, [id]);
+  useEffect(() => {
+    dispatch(updateHistoryVideoRelated(videoHistory.listOfHistory));
+  }, [videoDetailRelated]);
 
   const renderVideoCartRelated = () => {
     return videoDetailRelated.loading
       ? Array.from({ length: 50 }, (_, index) => {
           return (
-            <Grid item lg={12} md={4} sm={6} xs={12} key={index} className={"video_Detail-Page"}>
+            <Grid
+              item
+              lg={12}
+              md={4}
+              sm={6}
+              xs={12}
+              key={index}
+              className={'video_Detail-Page'}
+            >
               <LoadingVideoCard />
             </Grid>
           );

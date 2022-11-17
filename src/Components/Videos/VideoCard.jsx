@@ -9,13 +9,56 @@ import {
   ListItem,
   Avatar,
   CardActionArea,
+  CardActions,
+  Button,
+  Stack,
 } from '@mui/material';
-import { Logo } from '../../Utils';
+import { IconSave, Logo, IconRemove, IconHistory } from '../../Utils';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {
+  savedToHistory,
+  removeFromHistory,
+} from '../../feature/videoHistorySlice';
 
 const VideoCard = ({ video }) => {
+  const dispatch = useDispatch();
+  const handleSavedToHistory = () => {
+    dispatch(savedToHistory(video));
+  };
+  const handleRemoveFromHistory = () => {
+    dispatch(removeFromHistory(video?.id?.videoId));
+  };
+
+  const renderHistoryButton = () => {
+    return video?.bookmarked === true ? (
+      <Button
+        size={'large'}
+        color="primary"
+        variant={'contained'}
+        onClick={handleRemoveFromHistory}
+        endIcon={IconHistory}
+      >
+        <Typography variant={'body1'}>remove</Typography>
+      </Button>
+    ) : (
+      <Button
+        size={'large'}
+        color="secondary"
+        variant={'contained'}
+        endIcon={IconHistory}
+        onClick={handleSavedToHistory}
+      >
+        <Typography variant={'body1'}>add</Typography>
+      </Button>
+    );
+  };
+
   return (
-    <Card sx={{ height: '60vh' }} className={'video_Card'}>
+    <Card
+      sx={{ height: '61vh', position: 'relative' }}
+      className={'video_Card'}
+    >
       <NavLink to={`/video/${video.id.videoId}`}>
         <CardActionArea>
           <CardMedia
@@ -57,12 +100,21 @@ const VideoCard = ({ video }) => {
             secondary={
               <>
                 <Typography variant="subtitle2">
-                  {video.snippet.description.slice(0, 50)}
+                  {video.snippet.description.slice(0, 30)}
                 </Typography>
               </>
             }
           />
         </ListItem>
+        <Stack
+          position={'absolute'}
+          bottom={10}
+          flexGrow={1}
+          sx={{ backgroundColor: 'orange' }}
+          mt={3}
+        >
+          {renderHistoryButton()}
+        </Stack>
       </CardContent>
     </Card>
   );

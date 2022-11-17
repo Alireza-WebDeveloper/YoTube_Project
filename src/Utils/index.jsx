@@ -93,10 +93,16 @@ const IconDropUp = <Icons.MdArrowDropUp />;
 const IconComment = <Icons.MdComment />;
 const IconDarkMode = <Icons.MdDarkMode fontSize={'1.8rem'} />;
 const IconLightMode = <Icons.MdLightMode fontSize={'1.8rem'} />;
+const IconHistory = <Icons3.FaHistory fontSize={'1.8rem'} />;
+const IconSave = <Icons.MdOutlineBookmarkBorder />;
+const IconRemove = <Icons.MdFavoriteBorder />;
 const SourceProfile =
   'https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80';
 export {
   IconDarkMode,
+  IconSave,
+  IconRemove,
+  IconHistory,
   IconLightMode,
   dataOfSideBarTab,
   IconComment,

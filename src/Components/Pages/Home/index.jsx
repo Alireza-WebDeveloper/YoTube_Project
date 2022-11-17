@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { Grid } from '@mui/material';
 import SideBar from '../../SideBar';
-import { fetchGetVideoSearch } from '../../../feature/videoSearchSlice';
+import {
+  fetchGetVideoSearch,
+  updateHistoryVideoSearch,
+} from '../../../feature/videoSearchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useContext } from 'react';
 import { ActiveSidebarContext } from '../../../Context/ActiveSideBarTab';
@@ -11,6 +14,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const { activeTab, updateActiveTab } = useContext(ActiveSidebarContext);
   const { loading, listOfVideos } = useSelector((store) => store.videoSearch);
+  const { videoSearch } = useSelector((store) => store);
+  const { videoHistory } = useSelector((store) => store);
   const renderLoadingVideoCard = () => {
     return Array.from({ length: 50 }, (_, index) => {
       return (
@@ -30,6 +35,9 @@ const Home = () => {
     });
   };
   useEffect(() => {
+    dispatch(updateHistoryVideoSearch(videoHistory.listOfHistory));
+  }, [videoSearch]);
+  useEffect(() => {
     if (activeTab === '') {
       updateActiveTab('New');
     }
@@ -37,8 +45,9 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchGetVideoSearch(activeTab));
   }, [activeTab]);
+
   return (
-    <Grid container pt={11} spacing={1} className='home-Page'>
+    <Grid container pt={11} spacing={1} className="home-Page">
       <Grid item lg={1} xs={12}>
         <SideBar />
       </Grid>

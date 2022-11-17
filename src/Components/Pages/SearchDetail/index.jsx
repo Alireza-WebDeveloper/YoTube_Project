@@ -10,11 +10,13 @@ import BreadCrumbsLink from '../../BreadCrumbsLink';
 import { useContext } from 'react';
 import { dataOfSideBarTab } from '../../../Utils';
 import { ActiveSidebarContext } from '../../../Context/ActiveSideBarTab';
+import { updateHistoryVideoSearch } from '../../../feature/videoSearchSlice';
 const SearchDetail = () => {
   const dispatch = useDispatch();
   const { searchQuery } = useParams();
   const { videoSearch } = useSelector((store) => store);
   const { updateActiveTab } = useContext(ActiveSidebarContext);
+  const { videoHistory } = useSelector((store) => store);
   const indexOfInclusingQuerySearchToSideBar = dataOfSideBarTab.findIndex(
     ({ name }) => String(name).toLowerCase() === searchQuery
   );
@@ -28,12 +30,23 @@ const SearchDetail = () => {
     }
   }, [searchQuery]);
   useEffect(() => {
+    dispatch(updateHistoryVideoSearch(videoHistory.listOfHistory));
+  }, [videoSearch]);
+  useEffect(() => {
     dispatch(fetchGetVideoSearch(searchQuery));
   }, [searchQuery]);
   const renderVideoCard = () => {
     return videoSearch.listOfVideos.map((video) => {
       return (
-        <Grid item xl={3} md={4} sx={6} xs={12} key={video.id.videoId} className={'search_Detail-Page'}>
+        <Grid
+          item
+          xl={3}
+          md={4}
+          sx={6}
+          xs={12}
+          key={video.id.videoId}
+          className={'search_Detail-Page'}
+        >
           <VideoCard video={video} />
         </Grid>
       );
