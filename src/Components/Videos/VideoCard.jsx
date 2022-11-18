@@ -61,7 +61,6 @@ const VideoCard = ({ video }) => {
     <Card
       sx={{ height: '61vh', position: 'relative' }}
       className={'video_Card'}
-      data-aos="fade-up"
     >
       <NavLink to={`/video/${video.id.videoId}`}>
         <CardActionArea>
