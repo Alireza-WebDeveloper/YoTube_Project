@@ -24,6 +24,11 @@ import {
 import { useState } from 'react';
 import { Collapse } from 'react-bootstrap';
 import { useMemo } from 'react';
+/**
+ *
+ * @param {*} param0 = A Object Of Detail Video Yotube
+ * @returns
+ */
 const VideoPlayerYotube = ({ dataOfVideoSingleDetail }) => {
   const [showmore, setShowMore] = useState(false);
   const updateShowMore = () => {

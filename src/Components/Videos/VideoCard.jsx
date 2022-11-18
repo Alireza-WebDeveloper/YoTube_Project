@@ -20,7 +20,11 @@ import {
   savedToHistory,
   removeFromHistory,
 } from '../../feature/videoHistorySlice';
-
+/**
+ *
+ * @param {*} param0 A Object{} Of Detail Video
+ * @returns
+ */
 const VideoCard = ({ video }) => {
   const dispatch = useDispatch();
   const handleSavedToHistory = () => {

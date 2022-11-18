@@ -2,6 +2,11 @@ import React from 'react';
 import { CardActionArea, ImageList, ImageListItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useBreakPoint from '../../Hook/useBreakPoint';
+/**
+ * 
+ * @param {*} param0 = Array['','','']
+ * @returns 
+ */
 const VideoGallery = ({ listOfVideos }) => {
   const { isMatching } = useBreakPoint();
   const renderGalleryOfVideos = () => {

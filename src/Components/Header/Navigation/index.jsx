@@ -2,17 +2,14 @@ import { Toolbar, Stack, IconButton, Badge, Typography } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import {
-  IconMenu,
-  Logo,
-  IconNotification,
-  IconFavorite,
-  IconHistory,
-} from '../../../Utils';
-import Profile from '../../Profile';
+import { IconMenu, Logo, IconHistory } from '../../../Utils';
 import SearchBars from '../../SearchBar';
 import ToggleTheme from '../../ToggleTheme';
-
+/**
+ *
+ * @param {*} param0 = A Function For Update Open(SwipeDrawer)
+ * @returns
+ */
 const Navigation = ({ handleOpenSwipeDrawer }) => {
   const { videoHistory } = useSelector((store) => store);
   return (

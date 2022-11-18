@@ -10,8 +10,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1.3rem',
   },
 }));
+/**
+ *
+ * @param {*} param0 = Array Of Links['..','...','...']
+ * @returns
+ */
 const BreadCrumbsLink = ({ ListOfLinks }) => {
   const classes = useStyles();
+  /**
+   *
+   * @returns Render List Of Link
+   */
   const renderLinks = () => {
     return ListOfLinks.map(({ name, to }, index) => {
       return (

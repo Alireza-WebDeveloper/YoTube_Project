@@ -3,7 +3,13 @@ import React from 'react';
 import { IconClose } from '../../../Utils';
 import SearchBar from '../../SearchBar';
 import SideBarDrawer from '../../SideBarDrawer';
-
+/**
+ *
+ * @param {*} param0
+ * {openSwipeDrawer = A Value(True Or False) To=> Open,Close SwipeDrawer}
+ * {handleCloseDrawer = A Function For Update Close SwipeDrawer}
+ * @returns
+ */
 const SwipeDrawer = ({ openSwipeDrawer, handleCloseSwipeDrawer }) => {
   return (
     <Box className={'Swipe_Drawer'}>

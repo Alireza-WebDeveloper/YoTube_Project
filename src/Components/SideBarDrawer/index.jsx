@@ -12,6 +12,11 @@ import { dataOfSideBarTab } from '../../Utils';
 import { useContext } from 'react';
 import { ActiveSidebarContext } from '../../Context/ActiveSideBarTab';
 import { useNavigate } from 'react-router-dom';
+/**
+ *
+ * @param {*} param0 = {A Function For Update Close SwipeDrawer}
+ * @returns
+ */
 const SideBarDrawer = ({ handleCloseSwipeDrawer }) => {
   const { activeTab, updateActiveTab } = useContext(ActiveSidebarContext);
   const navigate = useNavigate();

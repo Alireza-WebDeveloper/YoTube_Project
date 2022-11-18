@@ -10,8 +10,12 @@ import {
   Box,
 } from '@mui/material';
 import { IconChecked } from '../../Utils';
+/**
+ *
+ * @param {*} param0 = Object{....}
+ * @returns ChannelCart
+ */
 const ChannelCart = ({ dataOfChannel }) => {
-  console.log(dataOfChannel?.brandingSettings?.image?.bannerExternalUrl);
   return (
     <Stack flexGrow={1} p={0} className={'channel_Cart'}>
       <CardMedia

@@ -12,7 +12,11 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { IconDislike, IconLike } from '../../Utils';
-
+/**
+ *
+ * @param {*} param0 = {video:'',text:'',....}
+ * @returns Comment Of Videos
+ */
 const CommentCard = ({ comment }) => {
   return (
     <Paper>
