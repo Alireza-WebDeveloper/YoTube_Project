@@ -42,4 +42,4 @@ const BreadCrumbsLink = ({ ListOfLinks }) => {
   );
 };
 
-export default BreadCrumbsLink;
+export default React.memo(BreadCrumbsLink);

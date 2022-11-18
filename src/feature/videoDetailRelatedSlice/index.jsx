@@ -40,7 +40,6 @@ const videoDetailRelatedSlice = createSlice({
       state.listOfVideos = action.payload;
     });
     builder.addCase(savedToHistory, (state, action) => {
-      console.log('Second');
       const videoTarget = state.listOfVideos.find(
         (video) => video.id.videoId === action.payload.id.videoId
       );
@@ -48,7 +47,6 @@ const videoDetailRelatedSlice = createSlice({
       videoTarget.bookmarked = true;
     });
     builder.addCase(removeFromHistory, (state, action) => {
-      console.log('Third');
       const videoTarget = state.listOfVideos.find(
         (video) => video.id.videoId === action.payload
       );
