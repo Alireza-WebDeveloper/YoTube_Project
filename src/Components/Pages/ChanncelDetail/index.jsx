@@ -5,22 +5,24 @@ import { fetchGetDetailOfChannelPerson } from '../../../feature/DetailOfChannelP
 import { ActiveSidebarContext } from '../../../Context/ActiveSideBarTab';
 import { useParams } from 'react-router-dom';
 import ChannelCart from '../../ChannelCart';
-
 import { fetchGetVideosChannel } from '../../../feature/videoChannelSlice';
 import VideoGallery from '../../VideoGallery';
 import LoadingChannelPerson from '../../LazyLoading/LoadingChannelPerson';
 import LoadingGalleryCard from '../../LazyLoading/LoadingGalleryCard';
 const ChannelDetail = () => {
+  const dispatch = useDispatch();
   const { updateActiveTab } = useContext(ActiveSidebarContext);
   const { id } = useParams();
-  const dispatch = useDispatch();
   const { DetailOfChannelPerson, videoChannel } = useSelector((store) => store);
   useEffect(() => {
     updateActiveTab('');
     dispatch(fetchGetDetailOfChannelPerson(id));
     dispatch(fetchGetVideosChannel(id));
   }, []);
-
+  /**
+   *
+   * @returns  ChannelCart || LoadingChannelPerson
+   */
   const renderChannelPerson = () => {
     return DetailOfChannelPerson?.loading ? (
       <LoadingChannelPerson />
@@ -28,7 +30,10 @@ const ChannelDetail = () => {
       <ChannelCart dataOfChannel={DetailOfChannelPerson.dataOfChannel} />
     );
   };
-
+  /**
+   *
+   * @returns VideoGallery || LoadingGallery
+   */
   const renderVideoChannel = () => {
     return videoChannel.loading ? (
       <LoadingGalleryCard />

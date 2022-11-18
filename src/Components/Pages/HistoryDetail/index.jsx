@@ -1,9 +1,13 @@
-import { Button, Grid, Stack, Typography } from '@mui/material';
+import { Grid, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import VideoCard from '../../Videos/VideoCard';
 const HistoryDetail = () => {
   const { videoHistory } = useSelector((store) => store);
+  /**
+   *
+   * @returns VideoHistory || (Not Found = 0 History)
+   */
   const renderVideoHistory = () => {
     return videoHistory.listOfHistory.length === 0 ? (
       <Grid item xs={12}>

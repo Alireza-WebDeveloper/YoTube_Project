@@ -16,24 +16,6 @@ const Home = () => {
   const { loading, listOfVideos } = useSelector((store) => store.videoSearch);
   const { videoSearch } = useSelector((store) => store);
   const { videoHistory } = useSelector((store) => store);
-  const renderLoadingVideoCard = () => {
-    return Array.from({ length: 50 }, (_, index) => {
-      return (
-        <Grid item xl={3} md={4} sm={6} xs={12} key={index}>
-          <LoadingVideoCard />
-        </Grid>
-      );
-    });
-  };
-  const renderVideoCard = () => {
-    return listOfVideos.map((video) => {
-      return (
-        <Grid item xl={3} md={4} sx={6} xs={12} key={video.id.videoId}>
-          <VideoCard video={video} />
-        </Grid>
-      );
-    });
-  };
   useEffect(() => {
     dispatch(updateHistoryVideoSearch(videoHistory.listOfHistory));
   }, [videoSearch]);
@@ -45,22 +27,36 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchGetVideoSearch(activeTab));
   }, [activeTab]);
-
+  /**
+   *
+   * @returns VideoCards || Loading(Fetch)
+   */
+  const renderVideoCard = () => {
+    return loading
+      ? Array.from({ length: 50 }, (_, index) => {
+          return (
+            <Grid item xl={3} md={4} sm={6} xs={12} key={index}>
+              <LoadingVideoCard />
+            </Grid>
+          );
+        })
+      : listOfVideos.map((video) => {
+          return (
+            <Grid item xl={3} md={4} sx={6} xs={12} key={video.id.videoId}>
+              <VideoCard video={video} />
+            </Grid>
+          );
+        });
+  };
   return (
     <Grid container pt={11} spacing={1} className="home-Page">
       <Grid item lg={1} xs={12}>
         <SideBar />
       </Grid>
       <Grid item lg={11} xs={12}>
-        {loading ? (
-          <Grid container spacing={3}>
-            {renderLoadingVideoCard()}
-          </Grid>
-        ) : (
-          <Grid container spacing={3}>
-            {renderVideoCard()}
-          </Grid>
-        )}
+        <Grid container spacing={3}>
+          {renderVideoCard()}
+        </Grid>
       </Grid>
     </Grid>
   );

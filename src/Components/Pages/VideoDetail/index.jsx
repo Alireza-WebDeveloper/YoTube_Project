@@ -22,10 +22,12 @@ const VideoDetail = () => {
   const dispatch = useDispatch();
   const { updateActiveTab } = useContext(ActiveSidebarContext);
   const { id } = useParams();
-  const { videoDetailSingle, videoDetailRelated, videoDetailComments } =
-    useSelector((store) => store);
-  const { videoHistory } = useSelector((store) => store);
-
+  const {
+    videoDetailSingle,
+    videoDetailRelated,
+    videoDetailComments,
+    videoHistory,
+  } = useSelector((store) => store);
   useEffect(() => {
     updateActiveTab('');
     dispatch(fetchGetVideoDetailSingle(id));
@@ -36,6 +38,10 @@ const VideoDetail = () => {
     dispatch(updateHistoryVideoRelated(videoHistory.listOfHistory));
   }, [videoDetailRelated]);
 
+  /**
+   *
+   * @returns VideoListRelated
+   */
   const renderVideoCartRelated = () => {
     return videoDetailRelated.loading
       ? Array.from({ length: 50 }, (_, index) => {
@@ -61,6 +67,10 @@ const VideoDetail = () => {
           );
         });
   };
+  /**
+   *
+   * @returns Comments Of Video
+   */
   const renderVideoComments = () => {
     return videoDetailComments.loading ? (
       <LoadingComments />
@@ -72,7 +82,10 @@ const VideoDetail = () => {
       })
     );
   };
-
+  /**
+   *
+   * @returns VideoPlayerYotube
+   */
   const renderVideoYotube = () => {
     return videoDetailSingle.loading ? (
       <LoadingVideoPlayerYotube />

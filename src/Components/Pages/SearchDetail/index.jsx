@@ -17,6 +17,10 @@ const SearchDetail = () => {
   const { videoSearch } = useSelector((store) => store);
   const { updateActiveTab } = useContext(ActiveSidebarContext);
   const { videoHistory } = useSelector((store) => store);
+  /**
+   * اگر کلمه سرچ مورد نظر جز لیست های
+   * باشه سریعا فعال شود sidebar
+   */
   const indexOfInclusingQuerySearchToSideBar = dataOfSideBarTab.findIndex(
     ({ name }) => String(name).toLowerCase() === searchQuery
   );
@@ -36,31 +40,31 @@ const SearchDetail = () => {
     dispatch(fetchGetVideoSearch(searchQuery));
   }, [searchQuery]);
   const renderVideoCard = () => {
-    return videoSearch.listOfVideos.map((video) => {
-      return (
-        <Grid
-          item
-          xl={3}
-          md={4}
-          sx={6}
-          xs={12}
-          key={video.id.videoId}
-          className={'search_Detail-Page'}
-        >
-          <VideoCard video={video} />
-        </Grid>
-      );
-    });
+    return videoSearch.loading
+      ? Array.from({ length: 50 }, (_, index) => {
+          return (
+            <Grid item xl={3} md={4} sm={6} xs={12} key={index}>
+              <LoadingVideoCard />
+            </Grid>
+          );
+        })
+      : videoSearch.listOfVideos.map((video) => {
+          return (
+            <Grid
+              item
+              xl={3}
+              md={4}
+              sx={6}
+              xs={12}
+              key={video.id.videoId}
+              className={'search_Detail-Page'}
+            >
+              <VideoCard video={video} />
+            </Grid>
+          );
+        });
   };
-  const renderLoadingVideoCard = () => {
-    return Array.from({ length: 50 }, (_, index) => {
-      return (
-        <Grid item xl={3} md={4} sm={6} xs={12} key={index}>
-          <LoadingVideoCard />
-        </Grid>
-      );
-    });
-  };
+
   return (
     <Grid container pt={10} gap={3}>
       <Grid item xs={12}>
@@ -74,15 +78,9 @@ const SearchDetail = () => {
         }
       </Grid>
       <Grid item xs={12}>
-        {videoSearch.loading ? (
-          <Grid container spacing={3}>
-            {renderLoadingVideoCard()}
-          </Grid>
-        ) : (
-          <Grid container spacing={3}>
-            {renderVideoCard()}
-          </Grid>
-        )}
+        <Grid container spacing={3}>
+          {renderVideoCard()}
+        </Grid>
       </Grid>
     </Grid>
   );
