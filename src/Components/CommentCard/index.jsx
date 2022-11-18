@@ -95,4 +95,4 @@ const CommentCard = ({ comment }) => {
   );
 };
 
-export default CommentCard;
+export default React.memo(CommentCard);

@@ -170,4 +170,4 @@ const VideoPlayerYotube = ({ dataOfVideoSingleDetail }) => {
   );
 };
 
-export default VideoPlayerYotube;
+export default React.memo(VideoPlayerYotube);
