@@ -9,11 +9,10 @@ import {
   ListItem,
   Avatar,
   CardActionArea,
-  CardActions,
   Button,
   Stack,
 } from '@mui/material';
-import { IconSave, Logo, IconRemove, IconHistory } from '../../Utils';
+import { Logo, IconHistory } from '../../Utils';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {

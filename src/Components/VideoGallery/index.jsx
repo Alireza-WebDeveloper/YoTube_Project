@@ -3,9 +3,9 @@ import { CardActionArea, ImageList, ImageListItem } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useBreakPoint from '../../Hook/useBreakPoint';
 /**
- * 
+ *
  * @param {*} param0 = Array['','','']
- * @returns 
+ * @returns
  */
 const VideoGallery = ({ listOfVideos }) => {
   const { isMatching } = useBreakPoint();
@@ -13,6 +13,7 @@ const VideoGallery = ({ listOfVideos }) => {
     return listOfVideos.map((video) => {
       return (
         <Link
+          key={video.id.videoId}
           to={`/video/${video.id.videoId}`}
           className={'video_Gallery--Item'}
         >
