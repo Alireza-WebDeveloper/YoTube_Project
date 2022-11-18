@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from '../src/app/index';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
+import 'aos/dist/aos.css';
 let persistor = persistStore(store);
 createRoot(document.querySelector('#root')).render(
   <Provider store={store}>

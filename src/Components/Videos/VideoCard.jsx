@@ -15,16 +15,21 @@ import {
 import { Logo, IconHistory } from '../../Utils';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Aos from 'aos';
 import {
   savedToHistory,
   removeFromHistory,
 } from '../../feature/videoHistorySlice';
+import { useEffect } from 'react';
 /**
  *
  * @param {*} param0 A Object{} Of Detail Video
  * @returns
  */
 const VideoCard = ({ video }) => {
+  useEffect(() => {
+    Aos.init({ duration: 400, easing: 'ease-in-sine', delay: 100 });
+  }, []);
   const dispatch = useDispatch();
   const handleSavedToHistory = () => {
     dispatch(savedToHistory(video));
@@ -61,6 +66,7 @@ const VideoCard = ({ video }) => {
     <Card
       sx={{ height: '61vh', position: 'relative' }}
       className={'video_Card'}
+      data-aos="fade-up"
     >
       <NavLink to={`/video/${video.id.videoId}`}>
         <CardActionArea>
