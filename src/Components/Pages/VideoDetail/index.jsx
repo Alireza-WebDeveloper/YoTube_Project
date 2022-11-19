@@ -75,7 +75,7 @@ const VideoDetail = () => {
     return videoDetailComments.loading ? (
       <LoadingComments />
     ) : (
-      videoDetailComments.listOfComments.map((comment) => {
+      videoDetailComments?.listOfComments?.map((comment) => {
         return (
           <CommentCard comment={comment} key={comment?.snippet?.videoId} />
         );
@@ -104,13 +104,15 @@ const VideoDetail = () => {
           </Grid>
           <Grid item xs={12}>
             <Stack>
-              <Typography
-                variant={'h3'}
-                textTransform={'capitalize'}
-                gutterBottom
-              >
-                comments
-              </Typography>
+              {videoDetailComments?.listOfComments && (
+                <Typography
+                  variant={'h3'}
+                  textTransform={'capitalize'}
+                  gutterBottom
+                >
+                  comments
+                </Typography>
+              )}
             </Stack>
             <Stack flexGrow={1} flexDirection={'column'} gap={2}>
               {renderVideoComments()}
