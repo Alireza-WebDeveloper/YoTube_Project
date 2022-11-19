@@ -16,9 +16,15 @@ const videoHistorySlice = createSlice({
         (video) => video?.id?.videoId !== action.payload
       );
     },
+    updateHistoryVideoDefault: (state, action) => {
+      state.listOfHistory = state.listOfHistory.map((video) => {
+        return { ...video, bookmarked: true };
+      });
+    },
   },
 });
 
-export const { savedToHistory, removeFromHistory } = videoHistorySlice.actions;
+export const { savedToHistory, removeFromHistory, updateHistoryVideoDefault } =
+  videoHistorySlice.actions;
 
 export default videoHistorySlice.reducer;
