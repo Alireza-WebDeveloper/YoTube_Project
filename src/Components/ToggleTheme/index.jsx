@@ -20,7 +20,7 @@ const ToggleTheme = () => {
             <IconButton color="secondary">{IconLightMode}</IconButton>
           )
         }
-        control={<Switch />}
+        control={<Switch checked={mode} />}
       />
     </>
   );

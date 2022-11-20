@@ -1,11 +1,16 @@
 import { colors, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
+import useLocalStorage from '../../Hook/useLocalStorage';
 import '../../style.css';
 const ThemeContext = React.createContext();
 
 const ThemeStore = (props) => {
-  const [mode, setMode] = useState(false);
+  const [mode, setMode] = useLocalStorage({
+    key: 'activeTheme',
+    value: window.matchMedia('(prefers-color-scheme: dark)').matches,
+  });
+
   const theme = createTheme({
     palette: {
       mode: mode ? 'dark' : 'light',
