@@ -69,7 +69,7 @@ const VideoCard = ({ video }) => {
       <Button
         size={'large'}
         color="primary"
-        variant={'contained'}
+        variant="contained"
         onClick={handleRemoveFromHistory}
         endIcon={IconHistory}
       >
@@ -140,13 +140,7 @@ const VideoCard = ({ video }) => {
             }
           />
         </ListItem>
-        <Stack
-          position={'absolute'}
-          bottom={10}
-          flexGrow={1}
-          sx={{ backgroundColor: 'orange' }}
-          mt={3}
-        >
+        <Stack position={'absolute'} bottom={10} flexGrow={1} mt={3}>
           {renderHistoryButton()}
         </Stack>
       </CardContent>
