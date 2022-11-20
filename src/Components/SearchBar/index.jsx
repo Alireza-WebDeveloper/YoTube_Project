@@ -1,4 +1,4 @@
-import {  IconButton, TextField } from '@mui/material';
+import { IconButton, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     fontSize: 18,
   },
 });
-const SearchBar = () => {
+const SearchBar = ({ handleCloseSwipeDrawer }) => {
   const classes = useStyles();
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ const SearchBar = () => {
   };
   const handleSubmitForm = (e) => {
     e.preventDefault();
+    if (!query) return;
     navigate(`search/${query}`);
     setQuery('');
   };
@@ -73,7 +74,11 @@ const SearchBar = () => {
         ) : null}
       </Box>
       <Box>
-        <IconButton className="searchBar_Submit--Query" type="submit">
+        <IconButton
+          className="searchBar_Submit--Query"
+          type="submit"
+          onClick={query && handleCloseSwipeDrawer}
+        >
           {IconSearch}
         </IconButton>
       </Box>

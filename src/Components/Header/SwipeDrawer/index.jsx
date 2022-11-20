@@ -21,7 +21,7 @@ const SwipeDrawer = ({ openSwipeDrawer, handleCloseSwipeDrawer }) => {
             </IconButton>
           </Box>
           <Box>
-            <SearchBar />
+            <SearchBar handleCloseSwipeDrawer={handleCloseSwipeDrawer} />
           </Box>
           <Box>
             <SideBarDrawer handleCloseSwipeDrawer={handleCloseSwipeDrawer} />
