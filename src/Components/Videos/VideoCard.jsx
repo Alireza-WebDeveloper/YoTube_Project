@@ -15,6 +15,8 @@ import {
 import { Logo, IconHistory } from '../../Utils';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { makeStyles } from '@mui/styles';
 import {
   savedToHistory,
   removeFromHistory,
@@ -24,13 +26,42 @@ import {
  * @param {*} param0 A Object{} Of Detail Video
  * @returns
  */
+
+const useStyles = makeStyles((theme) => ({
+  success: {
+    textTransform: 'capitalize',
+    fontFamily: theme.typography.h5.fontFamily,
+  },
+  error: {
+    textTransform: 'capitalize',
+    fontFamily: theme.typography.h5.fontFamily,
+  },
+}));
+
 const VideoCard = ({ video }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const handleSavedToHistory = () => {
+    toast.success(`Add to history`, {
+      autoClose: 1000,
+      position: 'top-center',
+      closeOnClick: true,
+      draggable: true,
+      pauseOnHover: false,
+      className: classes.success,
+    });
     dispatch(savedToHistory(video));
   };
   const handleRemoveFromHistory = () => {
     dispatch(removeFromHistory(video?.id?.videoId));
+    toast.error(`Remove From history`, {
+      autoClose: 1000,
+      position: 'top-center',
+      closeOnClick: true,
+      draggable: true,
+      pauseOnHover: false,
+      className: classes.success,
+    });
   };
 
   const renderHistoryButton = () => {
