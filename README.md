@@ -20,6 +20,8 @@ Html , Css , JavaScript , React , Material Ui
 
 
 ## Screenshots
-![App Screenshot](https://github.com/ProgrammerFront077/YoTube_Project/tree/main/src/1.png) 
-
+![App Screenshot](https://github.com/ProgrammerFront077/YoTube_Project/blob/main/src/1.PNG)
+![App Screenshot](https://github.com/ProgrammerFront077/YoTube_Project/blob/main/src/2.PNG)
+![App Screenshot](https://github.com/ProgrammerFront077/YoTube_Project/blob/main/src/3.PNG)
+![App Screenshot](https://github.com/ProgrammerFront077/YoTube_Project/blob/main/src/4.PNG)
 
